@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+
+<system>
+	<channel name="Entry temperature">
+
+		<!-- parametrization based on Columbia in-situ data -->
+		<!-- this predicts a steady-state temperature of 602 F for the SR-71 at 85.000 ft and Mach 3.2 -->
+		<!-- and 409 F for the Concorde at 54.000 ft at Mach 2.04  which is in the right ballpark -->
+		<!-- once a convective cooling term is included -->
+
+		<fcs_function name="systems/temperature/plasma-temperature-K">
+		<function>	
+			<product>
+				<property>systems/temperature/temperature-norm</property>
+				<value>1675.0</value>
+				<pow>
+					<property>velocities/mach</property>
+					<value>1.5</value>
+				</pow>
+				<pow>
+					<property>atmosphere/rho-slugs_ft3</property>
+					<value>0.3</value>
+				</pow>
+			</product>
+		</function>
+		</fcs_function>
+
+
+		<fcs_function name="systems/temperature/plasma-temperature-F">
+		<function>
+			<sum>
+				<product>
+				<difference>
+					<property>systems/temperature/plasma-temperature-K</property>
+					<value>273.15</value>
+				</difference>
+				<value>1.8</value>
+				</product>
+				<value>32.0</value>
+			</sum>
+		</function>
+		</fcs_function>
+		
+		<fcs_function name="systems/temperature/plasma-alpha">
+		<function>
+			<max>
+			<product>
+			<difference>
+			<product>
+				<property>systems/temperature/plasma-temperature-F</property>
+				<value>0.001</value>
+			</product>
+			<value>2.0</value>
+			</difference>
+			<value>0.1</value>
+			</product>
+			<value>0.01</value>
+			</max>
+		</function>
+		</fcs_function>
+		
+	</channel>
+
+
+	<channel name="Charring due to heat">
+	
+		<fcs_function name="systems/temperature/char-arg">
+		<function>
+			<product>
+				<max>
+					<difference>
+						<property>systems/temperature/plasma-temperature-F</property>
+						<value>2000.0</value>
+					</difference>
+					<value>0.0</value>
+				</max>
+				<value>0.00001</value>
+			</product>
+		</function>
+		</fcs_function>
+		
+		<pid name="systems/temperature/char-integrated">
+			<input>systems/temperature/char-arg</input>
+			<kp>0.0</kp>
+			<ki>1.0</ki>
+			<kd>0.0</kd>
+		</pid>
+		
+		<fcs_function name="systems/temperature/char-factor-final">
+		<function>
+			<min>
+				<value>3.0</value>
+				<property>systems/temperature/char-integrated</property>
+			</min>
+		</function>
+		</fcs_function>
+		
+		<fcs_function name="systems/temperature/char-refl-correction-final">
+		<function>
+			<difference>
+				<value>0.4</value>
+				<product>
+					<property>systems/temperature/char-factor-final</property>
+					<value>0.3</value>
+				</product>
+			</difference>
+		</function>
+		</fcs_function>
+		
+		<fcs_function name="systems/temperature/char-shininess">
+		<function>
+			<difference>
+					<value>32.0</value>
+					<product>
+						<property>systems/temperature/char-factor-final</property>
+						<value>9.0</value>
+					</product>
+			</difference>
+		</function>
+		</fcs_function>
+	
+	</channel>
+
+
+</system>

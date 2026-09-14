@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<name>simulation</name>
+	<layout>vbox</layout>
+	<default-padding>1</default-padding>
+	<modal>false</modal>
+	<width>500</width>
+
+	<empty>
+		<pref-height>6</pref-height>
+	</empty>
+
+	<text>
+		<label>Simulation and Rendering Options</label>
+	</text>
+
+	<empty>
+		<pref-height>4</pref-height>
+	</empty>
+
+	<hrule/>
+
+ <group>
+ <layout>table</layout>
+
+	<text>
+      		<label>Simulation</label>
+      		<halign>left</halign>
+      		<row>0</row>
+     	 	<col>0</col>
+    	</text>
+
+
+
+    <checkbox>
+        <name>firststage</name>
+      	<halign>left</halign>
+ 	<row>1</row>
+        <col>0</col>
+          <property>/sim/config/vostok-1/simulate-booster-drop</property>
+          <label>Simulate booster drop</label>
+          <live>true</live>
+ 	  <binding>
+              <command>dialog-apply</command>
+              <object-name>firststage</object-name>
+          </binding>
+ 	  <binding>
+              <command>nasal</command>
+              <script>
+			var option = getprop("/sim/config/vostok-1/simulate-booster-drop");
+			if (option == 1)
+				{setprop("/fdm/jsbsim/stages/unit[0]/attach", 1);}
+	      </script>
+          </binding>
+
+        </checkbox>
+
+    <checkbox>
+        <name>stages</name>
+      	<halign>left</halign>
+ 	<row>2</row>
+        <col>0</col>
+          <property>/sim/config/vostok-1/simulate-dropped-stages</property>
+          <label>Simulate stage separation</label>
+          <live>true</live>
+ 	  <binding>
+              <command>dialog-apply</command>
+              <object-name>stages</object-name>
+          </binding>
+        </checkbox>
+
+
+
+  </group>
+	
+        <empty>
+		<pref-height>6</pref-height>
+	</empty>
+
+	<hrule/>
+
+	<empty>
+		<pref-height>6</pref-height>
+	</empty>
+
+ 
+
+  <group>
+ <layout>table</layout>
+
+	<text>
+      		<label>Orbital rendering</label>
+      		<halign>left</halign>
+      		<row>0</row>
+     	 	<col>0</col>
+    	</text>
+
+	<checkbox>
+        <name>use-earthview</name>
+ 	<row>1</row>
+        <col>0</col>
+          <property>/sim/config/vostok-1/rendering/use-earthview</property>
+          <label>automatically use Earthview orbital rendering</label>
+          <live>true</live>
+ 	  <binding>
+              <command>dialog-apply</command>
+              <object-name>use-earthview</object-name>
+          </binding>
+	  <binding>
+		<command>nasal</command>
+		<script>stages.earthview_flag = getprop("/sim/config/vostok-1/rendering/use-earthview");</script>
+	  </binding>
+        </checkbox>
+
+	<text>
+      		<enable>
+       		<property>/sim/config/vostok-1/rendering/use-earthview</property>
+      		</enable>
+      		<label>transition to Earthview at</label>
+      		<halign>left</halign>
+      		<row>2</row>
+     	 	<col>0</col>
+    	</text>
+
+    <slider>
+      <name>earthview-transition</name>
+      <row>2</row>
+      <col>1</col>
+      <min>85000.0</min>
+      <max>320000.00</max>
+      <enable>
+       <property>/sim/config/vostok-1/rendering/use-earthview</property>
+      </enable>
+      <live>true</live>
+      <property>/sim/config/vostok-1/rendering/earthview-transition-alt-ft</property>
+      <binding>
+        <command>dialog-apply</command>
+        <object-name>earthview-transition</object-name>
+      </binding>
+      <binding>
+		<command>nasal</command>
+		<script>stages.earthview_transition_alt = getprop("/sim/config/vostok-1/rendering/earthview-transition-alt-ft");</script>
+      </binding>
+    </slider>
+
+    <text>
+      <enable>
+       <property>/sim/config/vostok-1/rendering/use-earthview</property>
+      </enable>
+      <row>2</row>
+      <col>2</col>
+      <halign>right</halign>
+      <label>12345678</label>
+      <format>%.f ft</format>
+      <live>true</live>
+      <property>/sim/config/vostok-1/rendering/earthview-transition-alt-ft</property>
+    </text> 
+
+
+ </group>
+
+
+
+	<empty>
+		<pref-height>12</pref-height>
+	</empty>
+
+	<hrule/>
+
+	<empty>
+		<pref-height>20</pref-height>
+	</empty>
+
+	<button>
+		<legend>Close</legend>
+		<default>true</default>
+		<key>Esc</key>
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+	</button>
+
+</PropertyList>
+

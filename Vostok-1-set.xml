@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!-- this puts Vostok onto the launch pad -->
+
+<PropertyList include="Vostok-1-common.xml">
+<sim>
+  <presets>
+	<stage type="int">0</stage>
+  </presets>
+  <description>Vostok-1</description>
+  <long-description>
+   The Vostok spacecraft carried the first human into Earth orbit. In this mission phase, the spacecraft is attached to the carrier rocket and ready to launch into space.
+  </long-description>
+  <previews>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Pics/vostok_exterior01.jpg</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Pics/vostok_exterior02.jpg</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>Pics/vostok_exterior03.jpg</path>
+      </preview>
+	  <preview>
+        <type>panel</type>
+        <splash type="bool">false</splash>
+        <path>Pics/vostok_interior.jpg</path>
+      </preview>
+  </previews>
+</sim>
+
+</PropertyList>

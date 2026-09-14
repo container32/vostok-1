@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <PropertyList>
+
+<!-- this is really annoying - we compute all the properties in JSBSim, but they end up being tied -->
+<!-- and can't be fed to the effects system directly, so we copy them via property rule -->
+
+ <filter>
+   <type>gain</type>
+   <gain>1.0</gain>
+   <input>/fdm/jsbsim/systems/temperature/plasma-temperature-K</input>
+   <output>/fdm/jsbsim/systems/temperature/plasma-T-K</output>
+ </filter>
+ 
+  <filter>
+   <type>gain</type>
+   <gain>1.0</gain>
+   <input>/fdm/jsbsim/systems/temperature/char-factor-final</input>
+   <output>/fdm/jsbsim/systems/temperature/char-factor</output>
+ </filter>
+ 
+ <filter>
+   <type>gain</type>
+   <gain>1.0</gain>
+   <input>/fdm/jsbsim/systems/temperature/char-refl-correction-final</input>
+   <output>/fdm/jsbsim/systems/temperature/char-refl-correction</output>
+ </filter>
+ 
+  <filter>
+   <type>gain</type>
+   <gain>57.2957</gain>
+   <input>/fdm/jsbsim/systems/angles/nose-heading-rad</input>
+   <output>/fdm/jsbsim/systems/angles/nose-heading-deg</output>
+  </filter>
+  
+  <filter>
+   <type>gain</type>
+   <gain>57.2957</gain>
+   <input>/fdm/jsbsim/systems/angles/nose-pitch-rad</input>
+   <output>/fdm/jsbsim/systems/angles/nose-pitch-deg</output>
+  </filter>
+  
+  <filter>
+   <type>gain</type>
+   <gain>57.2957</gain>
+   <input>/fdm/jsbsim/systems/angles/nose-roll-rad</input>
+   <output>/fdm/jsbsim/systems/angles/nose-roll-deg</output>
+  </filter>
+
+ <filter>
+   <type>gain</type>
+   <gain>1.0</gain>
+   <input>/fdm/jsbsim/calculations/calculations/engine-flame-collimation</input>
+   <output>/sim/systems/various/engine-flame-collimation</output>
+ </filter>
+
+ </PropertyList>

@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+
+<!--
+	Author: Slavutinsky Victor
+-->
+
+<PropertyList>
+
+<!-- Stage one block 3 -->
+
+	<path>Vostok-1-Stage-3.ac</path>
+
+	<offsets>
+		<x-m>0.0</x-m>
+		<y-m>0.0</y-m>
+		<z-m>-1.5</z-m>
+		<pitch-deg>0</pitch-deg>
+	</offsets>
+
+	<enable-hot type="bool">false</enable-hot>
+	
+	<!-- effects - the 3d mesh is obviously not optimal here -->
+	
+	<effect>
+	<inherits-from>Aircraft/Vostok-1/Models/Effects/vostok-low</inherits-from>
+		<object-name>FS_FCEight</object-name>
+		<object-name>FS_FCFive</object-name>
+		<object-name>FS_FCFour</object-name>
+		<object-name>FS_FCOne</object-name>
+		<object-name>FS_FCSeven</object-name>
+		<object-name>FS_FCSix</object-name>
+		<object-name>FS_FCThree</object-name>
+		<object-name>FS_FCTwo</object-name>
+		<object-name>TR_FHRSeven</object-name>
+		<object-name>TS_ABoxes</object-name>
+		<object-name>TS_Antennaes</object-name>
+		<object-name>TS_BOne</object-name>
+		<object-name>TS_BTwo</object-name>
+		<object-name>TS_BoxOne</object-name>
+		<object-name>TS_CPTwo</object-name>
+		<object-name>TS_CaBOne</object-name>
+		<object-name>TS_CaBTwo</object-name>
+		<object-name>TS_CamGlass</object-name>
+		<object-name>TS_CamHolder</object-name>
+		<object-name>TS_Camera</object-name>
+		<object-name>TS_EBFive</object-name>
+		<object-name>TS_EBFour</object-name>
+		<object-name>TS_EBOne</object-name>
+		<object-name>TS_EBSix</object-name>
+		<object-name>TS_EBTwo</object-name>
+		<object-name>TS_EBase</object-name>
+		<object-name>TS_ECooler</object-name>
+		<object-name>TS_EPTwo</object-name>
+		<object-name>TS_EPipe</object-name>
+		<object-name>TS_ESOne</object-name>
+		<object-name>TS_ESThree</object-name>
+		<object-name>TS_ESTwo</object-name>
+		<object-name>TS_ETFive</object-name>
+		<object-name>TS_ETFour</object-name>
+		<object-name>TS_ETOne</object-name>
+		<object-name>TS_ETThree</object-name>
+		<object-name>TS_ETTwo</object-name>
+		<object-name>TS_FHRFive</object-name>
+		<object-name>TS_FHROne</object-name>
+		<object-name>TS_FRThree</object-name>
+		<object-name>TS_FSFCBase</object-name>
+		<object-name>TS_FSFPBase</object-name>
+		<object-name>TS_FSHolder</object-name>
+		<object-name>TS_FTank</object-name>
+		<object-name>TS_MEFairiers</object-name>
+		<object-name>TS_METubes</object-name>
+		<object-name>TS_OTank</object-name>
+		<object-name>TS_PEBackI</object-name>
+		<object-name>TS_PEBackO</object-name>
+		<object-name>TS_PEForwardI</object-name>
+		<object-name>TS_PEForwardO</object-name>
+		<object-name>TS_PELeftI</object-name>
+		<object-name>TS_PELeftO</object-name>
+		<object-name>TS_PERightI</object-name>
+		<object-name>TS_PERightO</object-name>
+		<object-name>TS_POne</object-name>
+		<object-name>TS_R0109I</object-name>
+		<object-name>TS_R0109O</object-name>
+		<object-name>TS_REBLI</object-name>
+		<object-name>TS_REBLO</object-name>
+		<object-name>TS_REBRI</object-name>
+		<object-name>TS_REBRO</object-name>
+		<object-name>TS_REFLI</object-name>
+		<object-name>TS_REFLO</object-name>
+		<object-name>TS_REFRI</object-name>
+		<object-name>TS_REFRO</object-name>
+		<object-name>TS_REForwardRightI</object-name>
+		<object-name>TS_REForwardRightO</object-name>
+		<object-name>TS_SSCHolder</object-name>
+		<object-name>TS_TCConnector</object-name>
+		<object-name>TS_TCooler</object-name>
+		<object-name>ThirdStage</object-name>
+	</effect>
+
+
+	<!--<animation>
+		<type>translate</type>
+		<property>/test/translate</property>
+		<factor>1.0</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1.0</z>
+		</axis>
+	</animation>-->
+
+	<animation>
+		<type>select</type>
+		<object-name>FS_FCOne</object-name>
+		<object-name>FS_FCTwo</object-name>
+		<object-name>FS_FCThree</object-name>
+		<object-name>FS_FCFour</object-name>
+		<object-name>FS_FCFive</object-name>
+		<object-name>FS_FCSix</object-name>
+		<object-name>FS_FCSeven</object-name>
+		<object-name>FS_FCEight</object-name>
+		<condition>
+			<equals>
+				<property>fdm/jsbsim/stages/unit[1]/active</property>
+				<value>true</value>
+			</equals>
+		</condition>
+	</animation>
+
+
+</PropertyList>

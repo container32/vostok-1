@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+
+<particlesystem>
+	 <name>vostok_smoke</name>
+	 <texture>smoke.png</texture>
+	 <emissive>false</emissive>
+	 <lighting>false</lighting>
+	        <x-m>0.0</x-m>
+			<y-m>0.0</y-m>
+			<z-m>0.0</z-m>
+			<roll-deg>0.0</roll-deg>
+			<pitch-deg>0.0</pitch-deg>
+			<heading-deg>0.0</heading-deg>
+	<condition>
+	<and>
+		<or>
+    		<greater-than>
+     			<property>/engines/engine[0]/thrust_lb</property>
+     			<value>10000</value>
+    		</greater-than>
+		<greater-than>
+     			<property>/engines/engine[2]/thrust_lb</property>
+     			<value>10000</value>
+    		</greater-than>
+		<greater-than>
+     			<property>/engines/engine[4]/thrust_lb</property>
+     			<value>10000</value>
+    		</greater-than>
+		<greater-than>
+     			<property>/engines/engine[6]/thrust_lb</property>
+     			<value>10000</value>
+    		</greater-than>
+		</or>
+	</and>
+	</condition>
+		 
+	 <attach>world</attach>
+	 
+	 <placer>
+		<type>sector</type>
+		<radius-min-m>2.0</radius-min-m> 
+		<radius-max-m>2.0</radius-max-m> 
+	 </placer>
+	 
+	 <shooter>
+		 <theta-min-deg>85</theta-min-deg>
+		 <theta-max-deg>95</theta-max-deg>
+		 <phi-min-deg>0.1</phi-min-deg>
+		 <phi-max-deg>0.1</phi-max-deg>
+		 <speed>
+			 <value>5</value>
+			 <spread>1</spread>
+		 </speed>
+		 <rotation-speed>
+			<x-min-deg-sec>1</x-min-deg-sec>
+			<y-min-deg-sec>1</y-min-deg-sec>
+			<z-min-deg-sec>1</z-min-deg-sec>
+			<x-max-deg-sec>5</x-max-deg-sec>
+			<y-max-deg-sec>5</y-max-deg-sec>
+			<z-max-deg-sec>5</z-max-deg-sec>
+		 </rotation-speed>
+	 </shooter>
+	 
+	 <counter>
+		 <particles-per-sec>
+			 <value>250</value>
+			 <spread>0</spread>
+		 </particles-per-sec>
+	 </counter>
+	 
+	 <align>billboard</align>
+	 
+	 <particle>
+		 <start>
+			 <color>
+				<red>
+						<property>/lighting/effects/color-7</property>
+					</red>
+					<green>
+						<property>/lighting/effects/color-7</property>
+					</green>
+					<blue>
+						<property>/lighting/effects/color-7</property>
+					</blue>
+					<alpha>
+						<value>0.4</value>
+					</alpha>
+			 </color>
+			 <size>
+				 <value>7.5</value>
+			 </size>
+		 </start>
+		 <end>
+			 <color>
+				 <red>
+						<property>/lighting/effects/color-4</property>
+				 </red>
+				 <green>
+						<property>/lighting/effects/color-4</property>
+				 </green>
+				 <blue>
+						<property>/lighting/effects/color-4</property>
+				 </blue>
+				 <alpha>
+					 <value>0.2</value>
+				 </alpha>
+			 </color>
+			 <size>
+				 <value>30.0</value>
+			 </size>
+		 </end>
+		 <life-sec>
+			 <value>60</value>
+		 </life-sec>
+		 <mass-kg>0.35</mass-kg>
+		 <radius-m>0.70</radius-m>
+	 </particle>
+	 
+	 <program>
+		 <fluid>air</fluid>
+		 <gravity type="bool">true</gravity>
+		 <wind type="bool">true</wind>
+	 </program>
+	 
+</particlesystem>
+
+</PropertyList>

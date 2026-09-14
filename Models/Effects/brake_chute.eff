@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+    <name>brake_chute</name>
+    <inherits-from>Effects/chute</inherits-from>
+    <parameters>
+        <chute_force>1.0</chute_force>
+	<chute_projection_z>8.0</chute_projection_z>
+	<chute_fold>0.0</chute_fold>
+	<chute_bend>0.0</chute_bend>
+    </parameters>
+</PropertyList>
