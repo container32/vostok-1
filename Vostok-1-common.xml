@@ -1796,6 +1796,10 @@ If you need to take over manually, there is a one-way option provided after the 
 			<enabled type="bool" archive="y">false</enabled>
 		</view>
 
+		<view n="7"> <!-- Tower view AGL -->
+			<enabled type="bool" archive="y">false</enabled>
+		</view>
+
 		<view n="101">
 			<name>Left Panel View</name>
 			<type>lookfrom</type>
