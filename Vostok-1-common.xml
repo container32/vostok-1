@@ -1421,9 +1421,6 @@
 				</temperature>
 
 			</systems>
-			<velocities>
-				<initial-orbital-speed-fps type="double">0.0</initial-orbital-speed-fps>
-			</velocities>
 		</jsbsim>
 	</fdm>
 

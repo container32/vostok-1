@@ -118,18 +118,6 @@ var aircraft_refuel=func
 #Init position
 var init_position=func
 	{
-		#Get startup orbital speed
-		var initial_orbital_speed=getprop("fdm/jsbsim/velocities/eci-velocity-mag-fps");
-		if (
-			(initial_orbital_speed!=nil)
-		)
-		{
-			setprop("fdm/jsbsim/velocities/initial-orbital-speed-fps", initial_orbital_speed);
-		}
-		else
-		{
-			setprop("fdm/jsbsim/velocities/initial-orbital-speed-fps", -1);
-		}
 	}
 
 #--------------------------------------------------------------------

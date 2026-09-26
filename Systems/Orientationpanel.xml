@@ -127,25 +127,18 @@
 
 		<fcs_function name="calculations/orientationpanel/horizontal-speed-fps">
 		<function>
-			<pow>
-				<sum>
+			<sqrt>
+				<difference>
 					<product>
-						<sum>
-							<property>velocities/v-east-fps</property>
-							<property>velocities/initial-orbital-speed-fps</property>
-						</sum>
-						<sum>
-							<property>velocities/v-east-fps</property>
-							<property>velocities/initial-orbital-speed-fps</property>
-						</sum>
+						<property>velocities/eci-velocity-mag-fps</property>
+						<property>velocities/eci-velocity-mag-fps</property>
 					</product>
 					<product>
-						<property>velocities/v-north-fps</property>
-						<property>velocities/v-north-fps</property>
+						<property>velocities/v-down-fps</property>
+						<property>velocities/v-down-fps</property>
 					</product>
-				</sum>
-				<value>0.5</value>
-			</pow>
+				</difference>
+			</sqrt>
 		</function>
 			<output>systems/orientationpanel/horizontal-speed-fps</output>
 		</fcs_function>
