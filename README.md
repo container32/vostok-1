@@ -1,4 +1,4 @@
-A fork of the Vostok-1 model for FlightGear that fixes some bugs (such as sound effects in newer versions), removes the workaround for older versions of the simulator that do not support altitudes above 150 km (and raises the default orbital altitude), improves realism (fairing separation), and updates the documentation.
+A Vostok-1 model for FlightGear that fixes some bugs (such as sound effects in newer versions), removes the workaround for older versions of the simulator that do not support altitudes above 150 km (and raises the default orbital altitude), improves realism (fairing separation), and updates the documentation.
 
 ![](Pics/vostok_exterior02.jpg)
 
